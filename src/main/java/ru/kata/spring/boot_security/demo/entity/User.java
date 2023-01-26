@@ -17,8 +17,6 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(name = "username", unique = true)
-    @NotEmpty(message = "имя не должен быть пустым")
-    @Size(min = 4, message = "В имени должно быть не менее 4 знаков")
     private String username;
 
     @Column(name = "email")

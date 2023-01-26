@@ -67,7 +67,7 @@
                     <thead>
                     <tr>
                       <th>Id</th>
-                      <th>Имя</th>
+                      <th>Username</th>
                       <th>Email</th>
                       <th>Role</th>
                       <th>Edit</th>
@@ -111,7 +111,7 @@
 
                               <div class="modal-body">
 
-                                <form id="data" th:method="patch"
+                                <form id="data" th:method="PATCH"
                                       th:action="@{/admin/edit/{id}(id=${user.getId()})}">
                                   <div class="col-md-7 offset-md-3 text-center">
 
@@ -126,10 +126,10 @@
 
                                     <div class="form-group">
                                       <label for="nameEdit"
-                                             class="font-weight-bold">Имя</label>
+                                             class="font-weight-bold">Username</label>
                                       <input type="text"
                                              th:value="${user.getUsername()}"
-                                             th:name="name" class="form-control"
+                                             th:name="username" class="form-control"
                                              id="nameEdit">
                                     </div>
 
@@ -144,7 +144,7 @@
 
                                     <div class="form-group">
                                       <label for="passwordEdit"
-                                             class="font-weight-bold">Пароль</label>
+                                             class="font-weight-bold">Password</label>
                                       <input type="password" th:name="password"
                                              class="form-control"
                                              id="passwordEdit">
@@ -155,7 +155,7 @@
                                              class="font-weight-bold">Role</label>
                                       <select multiple id="roleEdit"
                                               class="form-control" name="roles"
-                                              size="2" readonly>
+                                              size="2">
                                         <option th:each="role : ${roles}"
                                                 th:text="${role.name}"
                                                 th:value="${role.id}"/>
@@ -220,10 +220,10 @@
 
                                     <div class="form-group">
                                       <label class="font-weight-bold"
-                                             for="nameDel">Имя</label>
+                                             for="nameDel">Username</label>
                                       <input type="text"
                                              th:value="${user.getUsername()}"
-                                             th:name="name" class="form-control"
+                                             th:name="username" class="form-control"
                                              readonly id="nameDel">
 
                                     </div>
@@ -241,16 +241,10 @@
                                       <label for="roleDel"
                                              class="font-weight-bold">Role</label>
 
-                                      <!--Я бы сделал так, а не как на скриншоте-->
-
-                                      <!--<input type="text"-->
-                                      <!--th:value="${user.getRoles()}"-->
-                                      <!--th:name="roles" class="form-control"-->
-                                      <!--readonly id="roleDel">-->
 
                                       <select multiple id="roleDel"
                                               class="form-control" name="index"
-                                              size="2" readonly>
+                                              size="2">
                                         <option th:each="role : ${roles}"
                                                 th:text="${role.name}"
                                                 th:value="${role.id}"/>
@@ -293,7 +287,7 @@
                     <div class="col-md-4 offset-md-4 text-center">
 
                       <div class="form-group">
-                        <label for="name" class="font-weight-bold">Имя</label>
+                        <label for="name" class="font-weight-bold">Username</label>
                         <input type="text" th:field="*{username}" id="name" class="form-control">
                       </div>
 
@@ -303,7 +297,7 @@
                       </div>
 
                       <div class="form-group">
-                        <label for="password" class="font-weight-bold">Пароль</label>
+                        <label for="password" class="font-weight-bold">Password</label>
                         <input type="password" th:field="*{password}" id="password"
                                class="form-control">
                       </div>
@@ -346,7 +340,7 @@
                     <thead>
                     <tr class="table-light">
                       <th>Id</th>
-                      <th>Имя</th>
+                      <th>Username</th>
                       <th>Email</th>
                       <th>Role</th>
                     </tr>
