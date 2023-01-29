@@ -18,12 +18,12 @@ public class UserController {
     }
     @GetMapping("/login")
     public String startController() {
-        return "login";
+        return "index";
     }
 
     @GetMapping("/user")
     public String UserPage(Model model, Principal principal) {
-        model.addAttribute("user", userService.findByUserName(principal.getName()));
+        model.addAttribute("user", userService.findByUsername(principal.getName()));
         return "user";
     }
 
