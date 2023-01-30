@@ -13,7 +13,7 @@ public interface UserService {
    User findUserByEmail(String email);
    User findByUsername(String username);
 
-   User getUserById(int id);
+   User getById(int id);
 
    List<User> getAllUsers();
 

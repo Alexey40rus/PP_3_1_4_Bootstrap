@@ -7,14 +7,15 @@
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
 
   <title>Admin panel</title>
 </head>
 
 <body>
 
-<!--Панель навигации (Начало)-->
+<!--Navbar (Начало)-->
 <nav class="navbar navbar-dark bg-dark">
   <div class="navbar-brand">
     <span class="font-weight-bold" th:text="${user.email}"/> with roles:
@@ -26,16 +27,16 @@
     <button type="submit" class="btn btn-dark ml-auto">Logout</button>
   </form>
 </nav>
-<!--Панель навигации (Конец)-->
+<!--Navbar (Конец)-->
 
-<div class="d-flex" style="height: 100vh">
+<div class="d-flex">
 
-  <!--Левый Sidebar (Начало)-->
-  <div class="nav flex-column nav-pills col-2 mt-3" style="padding-right:0">
+  <!--Sidebar (Начало)-->
+  <div class="nav flex-column nav-pills col-2 mt-3">
     <a class="nav-link active" id="admin-tab" data-toggle="pill" href="#admin-panel" role="tab">Admin</a>
     <a class="nav-link" id="user-tab" data-toggle="pill" href="#user-panel" role="tab">User</a>
   </div>
-  <!--Левый Sidebar (Конец)-->
+  <!--Sidebar (Конец)-->
 
   <div class="container-fluid bg-light">
     <div class="tab-content mt-3">
@@ -86,7 +87,7 @@
                         </div>
                       </td>
 
-                      <!--Окно редактирования с кнопкой (Начало)-->
+                      <!--Окно редактирования (Начало)-->
                       <td>
                         <button type="button" class="btn btn-info" data-toggle="modal"
                                 th:href="@{'#edituser'+${user.getId()}}">Edit
@@ -145,8 +146,9 @@
                                     <div class="form-group">
                                       <label for="passwordEdit"
                                              class="font-weight-bold">Password</label>
-                                      <input type="password" th:name="password"
-                                             class="form-control"
+                                      <input type="password"
+                                             th:value="${user.getPassword()}"
+                                             th:name="password" class="form-control"
                                              id="passwordEdit">
                                     </div>
 
@@ -179,9 +181,9 @@
                           </div>
                         </div>
                       </td>
-                      <!--Окно редактирования с кнопкой (Конец)-->
+                      <!--Окно редактирования (Конец)-->
 
-                      <!--Удаление пользователя (Начало)-->
+                      <!--Окно удаления (Начало)-->
                       <td>
                         <button type="button" class="btn btn-danger" data-toggle="modal"
                                 th:href="@{'#deleteUser'+${user.getId()}}">Delete
@@ -267,7 +269,7 @@
                           </div>
                         </div>
                       </td>
-                      <!--Удаление пользователя (Конец)-->
+                      <!--Окно удаление (Конец)-->
 
                     </tr>
                     </tbody>
@@ -305,13 +307,13 @@
                       <div class="form-group">
                         <label for="role" class="font-weight-bold">Role</label>
                         <select th:field="*{roles}" type="text" id="role" class="form-control">
-                          <option th:each="role : ${roles}" th:value="${role.getId()}"
+                          <option th:each="role : ${roles}"
+                                  th:value="${role.getId()}"
                                   th:text="${role.getName()}"></option>
                         </select>
                       </div>
                       <div class="d-grid gap-2">
-                        <button class="btn btn-success btn-lg form-control" type="submit">Add new
-                          user
+                        <button class="btn btn-success btn-lg form-control" type="submit">Add new user
                         </button>
                       </div>
                     </div>

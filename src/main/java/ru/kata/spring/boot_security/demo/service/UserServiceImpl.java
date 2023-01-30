@@ -42,7 +42,8 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         if (user == null) {
             throw new UsernameNotFoundException(String.format("User '%s' not found", email));
         }
-        return user;
+        return new org.springframework.security.core.userdetails.User(
+                user.getUsername(), user.getPassword(), user.getAuthorities());
     }
 
     @Override
@@ -61,6 +62,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         userRepository.save(updateUser);
     }
 
+
     @Override
     @Transactional
     public void deleteUser(int id) {
@@ -68,7 +70,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     }
 
     @Override
-    public User getUserById(int id) {
+    public User getById(int id) {
         return userRepository.getById(id);
     }
 

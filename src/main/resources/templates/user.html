@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -11,7 +11,7 @@
     <title>User</title>
 </head>
 <body>
-<!-- As a heading -->
+<!--Navbar (Начало)-->
 <nav class="navbar navbar-dark bg-dark">
     <div class="navbar-brand">
         <span class="font-weight-bold" th:text="${user.getEmail()}"/> with roles:
@@ -23,9 +23,11 @@
         <button type="submit" class="btn btn-dark ml-auto">Logout</button>
     </form>
 </nav>
-<div class="d-flex" style="height: 100vh">
+<!--Navbar (Конец)-->
 
-    <div class="nav flex-column nav-pills col-2 mt-3" style="padding-right:0">
+<!--Sidebar (Начало)-->
+<div class="d-flex">
+    <div class="nav flex-column nav-pills col-2 mt-3">
         <a class="nav-link active">User</a>
     </div>
 
@@ -33,6 +35,9 @@
         <div class="tab-content mt-3"/>
             <div class="container-fluid"/>
 </div>
+<!--Sidebar (Конец)-->
+
+<!--User панель (Начало)-->
 <h1>User information-page </h1>
 
 <div class="tab-content">
@@ -69,5 +74,6 @@
     </div>
 
 </div>
+<!--User панель (Конец)-->
 </body>
 </html>
