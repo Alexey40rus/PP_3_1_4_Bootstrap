@@ -7,8 +7,7 @@
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-        crossorigin="anonymous">
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
   <title>Admin panel</title>
 </head>
@@ -306,14 +305,14 @@
 
                       <div class="form-group">
                         <label for="role" class="font-weight-bold">Role</label>
-                        <select th:field="*{roles}" type="text" id="role" class="form-control">
-                          <option th:each="role : ${roles}"
-                                  th:value="${role.getId()}"
+                        <select th:field="*{roles}" id="role" class="form-control">
+                          <option th:each="role : ${roles}" th:value="${role.getId()}"
                                   th:text="${role.getName()}"></option>
                         </select>
                       </div>
                       <div class="d-grid gap-2">
-                        <button class="btn btn-success btn-lg form-control" type="submit">Add new user
+                        <button class="btn btn-success btn-lg form-control" type="submit">Add new
+                          user
                         </button>
                       </div>
                     </div>
